@@ -8,6 +8,7 @@
 
 #include "version.h"
 
+ll::Version PLUGIN_VERSION = ll::Version(PLUGIN_VERSION_MAJOR, PLUGIN_VERSION_MINOR, PLUGIN_VERSION_REVISION, PLUGIN_LLVERSION_STATUS);
 void PluginInit();
 
 Logger logger(PLUGIN_NAME);
@@ -38,7 +39,7 @@ BOOL APIENTRY DllMain(HMODULE hModule,
         ll::registerPlugin(
             PLUGIN_NAME,
             PLUGIN_INTRODUCTION,
-            ll::Version(PLUGIN_VERSION_MAJOR, PLUGIN_VERSION_MINOR, PLUGIN_VERSION_REVISION, PLUGIN_LLVERSION_STATUS),
+            PLUGIN_VERSION,
             std::map<std::string, std::string>{
                 {"Author", PLUGIN_AUTHOR},
             });

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.21)
 
-project(plugin)
+project(RedstoneLimiter)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_BUILD_TYPE Release)
@@ -62,15 +62,15 @@ add_link_options(
     /SUBSYSTEM:CONSOLE
 )
 
-add_library(plugin SHARED ${SRC_FILES_DIR})
+add_library(RedstoneLimiter SHARED ${SRC_FILES_DIR})
 
-target_link_libraries(plugin 
+target_link_libraries(RedstoneLimiter
 	"${CMAKE_SOURCE_DIR}/SDK/lib/LiteLoader.lib"
 	"${CMAKE_SOURCE_DIR}/SDK/lib/bedrock_server_api.lib"
 	"${CMAKE_SOURCE_DIR}/SDK/lib/bedrock_server_var.lib"
 	"${CMAKE_SOURCE_DIR}/SDK/lib/SymDBHelper.lib"
 )
 
-add_custom_command(TARGET plugin PRE_BUILD
+add_custom_command(TARGET RedstoneLimiter PRE_BUILD
     COMMAND cmd /c ${PROJECT_SOURCE_DIR}/prepare_libraries.cmd ${PROJECT_SOURCE_DIR}
 )
