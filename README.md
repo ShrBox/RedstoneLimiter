@@ -1,6 +1,6 @@
 # RedstoneLimiter
 
-English | [简体中文](README_zh-cn.md)
+English | [简体中文](README_zh-cn.md)  
 Limit redstone frequency on LiteLoaderBDS server
 
 ## Usage
