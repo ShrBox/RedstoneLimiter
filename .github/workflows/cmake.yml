@@ -5,6 +5,7 @@ on: [push, pull_request]
 env:
   PLUGIN_NAME: RedstoneLimiter
   BUILD_CONFIGURATION: Release
+  VERSION_FILE_PATH: src/version.h
   BUILD_TYPE: Release
   SDK_DIR: ./SDK
   BDS_VERSION: 1.19.52.01
