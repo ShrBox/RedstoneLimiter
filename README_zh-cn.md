@@ -1,5 +1,6 @@
 # RedstoneLimiter
 
+[English](README.md) | 简体中文
 在LiteLoaderBDS服务器上限制红石频率
 
 ## 使用方法
