@@ -24,7 +24,7 @@ Download from [Release](https://github.com/ShrBox/RedstoneLimiter/releases)
 
 ```jsonc
 {
-    "EnableCommands": true, // Whether enable /redstonelimiter command  
+    "EnableCommands": true, // Whether to enable /redstonelimiter command  
     "TickLimitation": 5 // How many game ticks trigger redstone tick
 }
 ```
