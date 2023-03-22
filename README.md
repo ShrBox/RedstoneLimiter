@@ -8,7 +8,7 @@ Limit redstone frequency on LiteLoaderBDS server
 ### Use Lip
 
 ```bash
-lip install github.com/Tooth-Hub/RedstoneLimiter
+lip install RedstoneLimiter
 ```
 
 ### Manual

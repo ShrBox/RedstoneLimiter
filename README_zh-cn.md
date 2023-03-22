@@ -8,7 +8,7 @@
 ### 使用Lip
 
 ```bash
-lip install github.com/Tooth-Hub/RedstoneLimiter
+lip install RedstoneLimiter
 ```
 
 ### 手动安装
