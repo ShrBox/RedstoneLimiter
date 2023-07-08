@@ -47,7 +47,7 @@ void RegisterCommands() {
     using ParamType = DynamicCommand::ParameterType;
     using Param = DynamicCommand::ParameterData;
     DynamicCommand::setup("redstonelimiter", "RedstoneLimiter command", {{"op",  {"set"}},
-                                                                         {"op1", {"reload"}}},
+                                                                         {"op1", {"reload", "info"}}},
                           {Param("operation", ParamType::Enum, false, "op"),
                            Param("operation", ParamType::Enum, false, "op1"), Param("tick", ParamType::Int, true)},
                           {{"op", "tick"},
@@ -56,18 +56,24 @@ void RegisterCommands() {
                              std::unordered_map<std::string, DynamicCommand::Result> &results) {
                               auto &action = results["operation"].getEnumValue();
                               switch (do_hash(action.c_str())) {
-                                  case do_hash("reload"):
+                                  case do_hash("reload"): {
                                       loadConfig();
                                       output.success("[RedstoneLimiter] Reloaded, current tick limitation is " +
                                                      std::to_string(LTick));
                                       break;
-                                  case do_hash("set"):
+                                  }
+                                  case do_hash("set"): {
                                       auto &tick = results["tick"];
                                       if (tick.isSet) {
                                           LTick = tick.get<int>();
                                       }
                                       output.success(
                                               "[RedstoneLimiter] Set tick limitation to " + std::to_string(LTick));
+                                      break;
+                                  }
+                                  case do_hash("info"): {
+                                      output.success("[RedstoneLimiter] Current tick: " + std::to_string(CTick) + " Limited tick: " + std::to_string(LTick));
+                                  }
                               }
                           });
 }
