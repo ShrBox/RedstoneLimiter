@@ -8,7 +8,7 @@ env:
   VERSION_FILE_PATH: src/version.h
   BUILD_TYPE: Release
   SDK_DIR: ./SDK
-  BDS_VERSION: 1.20.0.01
+  BDS_VERSION: 1.20.1.02
 
 jobs:
   build:
@@ -64,9 +64,9 @@ jobs:
         run: |
           mkdir output/
           mkdir output/${{env.PLUGIN_NAME}}/
-          cp -f out/Release/*.dll output/${{env.PLUGIN_NAME}}/
+          cp -f build/Release/*.dll output/${{env.PLUGIN_NAME}}/
           mkdir output/PDB/
-          cp -f out/Release/*.pdb output/PDB/
+          cp -f build/Release/*.pdb output/PDB/
           # mkdir output/${{env.PLUGIN_NAME}}/${{env.PLUGIN_NAME}}/
           # cp -r Data/* output/${{env.PLUGIN_NAME}}/${{env.PLUGIN_NAME}}/
         shell: bash
@@ -107,7 +107,7 @@ jobs:
         with:
           body_path: ${{ github.workspace }}\RELEASE_NOTES.md
           files: |
-            ${{ github.workspace }}\${{env.PLUGIN_NAME}}-${{ steps.rel.outputs.tag }}.zip
-            ${{ github.workspace }}\PDB-${{ steps.rel.outputs.tag }}.zip
+            ${{ github.workspace }}\${{env.PLUGIN_NAME}}.zip
+            ${{ github.workspace }}\PDB.zip
         env:
           GITHUB_REPOSITORY: ${{env.GITHUB_ACTION_REPOSITORY}}
